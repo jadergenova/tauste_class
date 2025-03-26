@@ -27,12 +27,14 @@ class _MyAppState extends State<MyApp> {
       drawer: Drawer(
         child: ListView(
           children: const [
-            Text(
-              'Departamentos',
-              style: TextStyle(
-                color: Colors.indigo,
-                fontSize: 30,
-                fontWeight: FontWeight.bold,
+            Center(
+              child: Text(
+                'Departamentos',
+                style: TextStyle(
+                  color: Colors.indigo,
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
           ],
@@ -44,22 +46,16 @@ class _MyAppState extends State<MyApp> {
         onPressed: () {},
         child: const Icon(Icons.add),
       ),
-      // bottomNavigationBar: BottomNavigationBar(
-      //   items: const [
-      //     BottomNavigationBarItem(
-      //       icon: Icon(Icons.home),
-      //       label: 'Home',
-      //     ),
-      //     BottomNavigationBarItem(
-      //       icon: Icon(Icons.shopping_cart),
-      //       label: 'Carrinho',
-      //     ),
-      //     BottomNavigationBarItem(
-      //       icon: Icon(Icons.person),
-      //       label: 'Perfil',
-      //     ),
-      //   ],
-      // ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.shopping_cart),
+            label: 'Carrinho',
+          ),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Perfil'),
+        ],
+      ),
     );
   }
 }
