@@ -18,43 +18,84 @@ class _MyAppState extends State<MyApp> {
       title: 'Supermercado',
       debugShowCheckedModeBanner: false,
       theme: ThemeData.light(),
-      home: iniciarComponentePrincipalDoApp(),
+      home: const IniciarComponentePrincipalDoApp(),
     );
   }
+}
 
-  Widget iniciarComponentePrincipalDoApp() {
+class IniciarComponentePrincipalDoApp extends StatelessWidget {
+  const IniciarComponentePrincipalDoApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       drawer: Drawer(
         child: ListView(
-          children: const [
-            Center(
-              child: Text(
-                'Departamentos',
-                style: TextStyle(
-                  color: Colors.indigo,
-                  fontSize: 30,
-                  fontWeight: FontWeight.bold,
-                ),
+          children: [
+            Text(
+              'Departamentos',
+              style: TextStyle(
+                color: Colors.indigo,
+                fontSize: 30,
+                fontWeight: FontWeight.bold,
               ),
+            ),
+            ListTile(
+              title: Text('Tauste Supermercados'),
+              subtitle: Text('Bem-vindo ao Tauste!'),
+              tileColor: Colors.indigo[900],
+              textColor: Colors.white,
+              onTap:
+                  () => showDialog(
+                    context: context,
+                    builder:
+                        (BuildContext context) => AlertDialog(
+                          title: Text('Ã“tima escolha!'),
+                          content: Text('Faz toda diferenÃ§a!!!'),
+                          actions: [
+                            TextButton(
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
+                              child: const Text('Fechar'),
+                            ),
+                          ],
+                        ),
+                  ),
+            ),
+            ListTile(
+              title: Text('Concorrencia'),
+              subtitle: Text('Bem-vindo a concorrencia!'),
+              tileColor: Colors.green,
+              textColor: Colors.white,
+              onTap:
+                  () => showDialog(
+                    context: context,
+                    builder:
+                        (BuildContext context) => AlertDialog(
+                          title: Text('Produtos de Baixa qualidade!'),
+                          content: Text('Melhor Evitar!!!'),
+                          actions: [
+                            TextButton(
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
+                              child: const Text('Fechar'),
+                            ),
+                          ],
+                        ),
+                  ),
             ),
           ],
         ),
       ),
+
       appBar: AppBar(),
-      body: const Center(child: Text('Hello World')),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: const Icon(Icons.add),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_cart),
-            label: 'Carrinho',
-          ),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Perfil'),
-        ],
+      body: Scaffold(
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {},
+          child: const Icon(Icons.add),
+        ),
       ),
     );
   }
